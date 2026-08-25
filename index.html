@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pondok Mujtaba, tempat sebuah generasi bertumbuh dengan ilmu, adab, dan iman."
+    />
+    <title>Pondok Mujtaba | Tempat Sebuah Generasi Bertumbuh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "#102d24",
+              emerald: "#184b39",
+              gold: "#c9aa6b",
+              paper: "#fcfbf8",
+              cream: "#f3f0e8",
+              muted: "#68746d",
+            },
+            fontFamily: {
+              display: ["Playfair Display", "serif"],
+              sans: ["DM Sans", "sans-serif"],
+              mono: ["DM Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+      .display {
+        font-family: "Playfair Display", serif;
+      }
+      .mono {
+        font-family: "DM Mono", monospace;
+      }
+      .hero-bg {
+        animation: zoom 18s ease-out forwards;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .faq-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s;
+      }
+      .faq-answer > div {
+        overflow: hidden;
+      }
+      .faq-item.open .faq-answer {
+        grid-template-rows: 1fr;
+      }
+      .faq-item.open .faq-plus {
+        transform: rotate(45deg);
+      }
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s;
+      }
+      .mobile-menu.open {
+        max-height: 400px;
+      }
+      @keyframes zoom {
+        from {
+          transform: scale(1.04);
+        }
+        to {
+          transform: scale(1.12);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      :root { --navy:#20283a; --purple:#5424c9; --violet:#6b35e8; --lime:#c7f15a; --peach:#f4cbb9; --blue:#bfddea; --lavender:#d9d2f0; --warm:#f5f5f2; }
+      body { background:#f5f5f2 !important; color:var(--navy) !important; }
+      .bg-forest { background-color:var(--navy) !important; }
+      .bg-emerald { background-color:var(--purple) !important; }
+      .bg-cream { background-color:#fff !important; }
+      .text-gold { color:var(--purple) !important; }
+      .bg-gold { background-color:var(--lime) !important; }
+      .text-forest { color:var(--navy) !important; }
+      .display { letter-spacing:-.045em; }
+      .soft-card { border-radius:28px; box-shadow:0 16px 45px rgba(32,40,58,.08); }
+      .float { animation:float 7s ease-in-out infinite; }
+      .float-slow { animation:float 10s ease-in-out infinite reverse; }
+      @keyframes float { 0%,100% { transform:translateY(0) rotate(-3deg); } 50% { transform:translateY(-15px) rotate(3deg); } }
+      .hero-photo { border-radius:42% 42% 24px 24px; }
+      .marquee { animation:marquee 20s linear infinite; }
+      @keyframes marquee { to { transform:translateX(-50%); } }
+    </style>
+  </head>
+  <body class="bg-paper text-[#1c2521] antialiased">
+    <div
+      class="bg-forest px-6 py-2 text-center text-[10px] uppercase tracking-[.12em] text-white/80 sm:text-xs"
+    >
+      Pendaftaran Santri Baru 2026 Telah Dibuka
+      <a data-wa="registration" href="#daftar" class="ml-3 text-gold"
+        >Daftar sekarang ↗</a
+      >
+    </div>
+    <header
+      id="header"
+      class="absolute left-0 top-8 z-30 w-full text-white transition-all duration-300"
+    >
+      <nav
+        class="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12"
+      >
+        <a href="#top" class="flex items-center gap-3"
+          ><span
+            class="display flex h-9 w-9 items-center justify-center border border-gold text-xl text-gold"
+            >M</span
+          ><span class="text-sm font-semibold"
+            >Pondok Mujtaba<small
+              class="mono mt-1 block text-[8px] uppercase tracking-widest text-white/50"
+              >Islamic boarding school</small
+            ></span
+          ></a
+        >
+        <div class="hidden gap-8 text-xs lg:flex">
+          <a href="#tentang">Tentang</a><a href="#program">Program</a
+          ><a href="#kehidupan">Kehidupan</a><a href="#fasilitas">Fasilitas</a>
+        </div>
+        <a
+          data-wa="general"
+          href="#daftar"
+          class="hidden border border-white/35 px-4 py-3 text-xs sm:block"
+          >Hubungi kami ↗</a
+        ><button id="menu-button" aria-label="Buka menu" class="p-2 lg:hidden">
+          <span class="block h-px w-6 bg-white"></span
+          ><span class="mt-2 block h-px w-4 bg-white"></span>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="mobile-menu bg-forest/95 px-6 lg:hidden">
+        <div class="flex flex-col pb-5 text-xl display">
+          <a class="border-b border-white/10 py-4" href="#tentang"
+            >Tentang kami</a
+          ><a class="border-b border-white/10 py-4" href="#program"
+            >Program pendidikan</a
+          ><a class="border-b border-white/10 py-4" href="#kehidupan"
+            >Kehidupan santri</a
+          ><a class="border-b border-white/10 py-4" href="#fasilitas"
+            >Fasilitas</a
+          ><a data-wa="general" href="#daftar" class="py-4 text-gold"
+            >Hubungi kami ↗</a
+          >
+        </div>
+      </div>
+    </header>
+    <main id="top">
+      <section class="relative overflow-hidden bg-[#f5f5f2] pt-24 text-[#20283a] sm:pt-28">
+        <div class="mx-auto grid min-h-[680px] max-w-[1400px] items-center gap-12 px-6 pb-20 lg:grid-cols-[.9fr_1.1fr] lg:gap-6 lg:px-12">
+          <div class="relative z-10"><p class="mono reveal text-[10px] uppercase tracking-[.15em] text-[#5424c9]">Modern Islamic boarding school</p><h1 class="display reveal mt-7 max-w-xl text-6xl leading-[.88] tracking-[-.06em] sm:text-8xl">Tempat untuk <span class="relative inline-block"><i class="relative z-10 not-italic text-white">tumbuh</i><span class="absolute inset-x-[-.12em] bottom-1/4 -z-0 h-[.7em] -rotate-2 bg-[#5424c9]"></span></span>, belajar,<br>dan menemukan masa depan.</h1><p class="reveal mt-8 max-w-md text-sm leading-7 text-[#68746d]">Pondok Mujtaba adalah ruang bagi generasi muda untuk belajar, beradab, bertumbuh, dan mempersiapkan langkah menuju masa depan.</p><div class="reveal mt-8 flex flex-wrap items-center gap-4"><a data-wa="registration" href="#daftar" class="rounded-full bg-[#20283a] px-6 py-4 text-xs uppercase text-white transition hover:-translate-y-1 hover:bg-[#5424c9]">Daftar sekarang ↗</a><a href="#tentang" class="rounded-full border border-[#20283a]/20 px-6 py-4 text-xs uppercase transition hover:border-[#5424c9] hover:text-[#5424c9]">Kenalan dengan Mujtaba →</a></div><p class="mono mt-8 text-[9px] uppercase tracking-widest text-[#68746d]">Pendidikan · Al-Qur’an · Adab · Masa depan</p></div>
+          <div class="relative min-h-[510px] lg:min-h-[620px]"><div class="absolute left-[8%] top-[10%] h-64 w-64 rounded-full bg-[#c7f15a] sm:h-80 sm:w-80"></div><div class="float absolute right-[4%] top-[7%] rounded-full bg-[#bfddea] px-5 py-3 text-xs font-semibold text-[#20283a] shadow-lg">LEARN ↗</div><div class="float-slow absolute bottom-[8%] left-[2%] z-10 rounded-2xl bg-white px-5 py-4 text-xs font-semibold text-[#20283a] shadow-xl">GROW<br><span class="font-normal text-[#68746d]">with purpose</span></div><div class="hero-photo absolute bottom-0 right-[7%] h-[470px] w-[72%] bg-[url('https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1300&q=85')] bg-cover bg-center shadow-2xl sm:h-[570px]"></div><div class="absolute bottom-[17%] right-0 z-10 rounded-[24px] bg-[#5424c9] px-5 py-4 text-white shadow-xl"><span class="mono text-[9px] tracking-widest">EXPLORE</span><div class="mt-2 text-2xl">✦</div></div><div class="absolute right-[30%] top-[20%] h-20 w-20 rounded-full border-[12px] border-[#f4cbb9]"></div></div>
+        </div>
+      </section>
+      <section
+        id="tentang"
+        class="mx-auto max-w-[1400px] px-6 py-28 lg:px-12 lg:py-40"
+      >
+        <p class="mono reveal text-[10px] uppercase tracking-widest text-muted">
+          01 — Tentang kami
+        </p>
+        <div class="mt-16 grid gap-14 lg:grid-cols-[1.1fr_.7fr] lg:gap-32">
+          <div class="reveal">
+            <h2
+              class="display max-w-3xl text-5xl leading-[.98] tracking-[-.04em] sm:text-7xl"
+            >
+              Setiap anak memiliki potensi untuk menjadi
+              <i class="text-gold">luar biasa.</i>
+            </h2>
+            <a
+              href="#program"
+              class="mt-12 inline-flex border-b border-black/15 pb-2 text-[10px] uppercase tracking-widest"
+              >Kenali nilai kami ↗</a
+            >
+          </div>
+          <div class="reveal pt-2">
+            <p class="display text-2xl leading-snug">
+              Kami percaya pendidikan terbaik tidak hanya mengisi kepala, tetapi
+              juga membentuk hati.
+            </p>
+            <p class="mt-6 text-sm leading-7 text-muted">
+              Di Pondok Mujtaba, santri belajar dalam lingkungan yang hangat dan
+              terarah. Mereka tumbuh menjadi pribadi yang mengenal Tuhannya,
+              menghargai sesama, dan siap mengambil peran baik di dunia.
+            </p>
+          </div>
+        </div>
+        <div
+          class="mt-20 h-[420px] bg-[url('https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=1600&q=85')] bg-cover bg-center p-7 text-white sm:ml-[18%] sm:h-[520px]"
+        >
+          <div class="flex h-full items-end border border-gold/60 p-5">
+            <span class="display text-2xl leading-none"
+              >Ruang untuk belajar<br />dan menemukan diri.</span
+            >
+          </div>
+        </div>
+      </section>
+      <section class="bg-cream px-6 py-28 lg:px-12 lg:py-36">
+        <div
+          class="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-[.7fr_1fr] lg:gap-32"
+        >
+          <div>
+            <p class="mono text-[10px] uppercase tracking-widest text-muted">
+              02 — Mengapa Mujtaba
+            </p>
+            <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+              Nilai yang menemani<br /><i class="text-gold">setiap langkah.</i>
+            </h2>
+          </div>
+          <div class="divide-y divide-black/10 border-y border-black/10">
+            <div class="grid grid-cols-[42px_1fr_20px] gap-5 py-7">
+              <span class="mono text-xs text-gold">01</span>
+              <div>
+                <h3 class="display text-xl">Pendidikan berbasis nilai Islam</h3>
+                <p class="mt-2 text-xs leading-6 text-muted">
+                  Ilmu yang berakar pada iman dan menjadi tindakan nyata.
+                </p>
+              </div>
+              <span>↗</span>
+            </div>
+            <div class="grid grid-cols-[42px_1fr_20px] gap-5 py-7">
+              <span class="mono text-xs text-gold">02</span>
+              <div>
+                <h3 class="display text-xl">Pembinaan karakter dan adab</h3>
+                <p class="mt-2 text-xs leading-6 text-muted">
+                  Kecerdasan yang hadir bersama akhlak.
+                </p>
+              </div>
+              <span>↗</span>
+            </div>
+            <div class="grid grid-cols-[42px_1fr_20px] gap-5 py-7">
+              <span class="mono text-xs text-gold">03</span>
+              <div>
+                <h3 class="display text-xl">Lingkungan yang mendukung</h3>
+                <p class="mt-2 text-xs leading-6 text-muted">
+                  Komunitas aman untuk bertanya dan bertumbuh.
+                </p>
+              </div>
+              <span>↗</span>
+            </div>
+            <div class="grid grid-cols-[42px_1fr_20px] gap-5 py-7">
+              <span class="mono text-xs text-gold">04</span>
+              <div>
+                <h3 class="display text-xl">Persiapan untuk masa depan</h3>
+                <p class="mt-2 text-xs leading-6 text-muted">
+                  Wawasan luas dan keberanian untuk melangkah.
+                </p>
+              </div>
+              <span>↗</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-emerald px-6 py-32 text-white lg:px-12 lg:py-44">
+        <div class="mx-auto max-w-[1200px]">
+          <p class="mono text-[10px] uppercase tracking-widest text-white/50">
+            Arah pendidikan kami
+          </p>
+          <h2 class="display mt-7 text-6xl leading-[.95] sm:text-8xl">
+            Ilmu akan membuka jalan.<br /><i class="text-gold"
+              >Adab akan menentukan arah.</i
+            >
+          </h2>
+        </div>
+      </section>
+      <section
+        id="program"
+        class="mx-auto max-w-[1400px] px-6 py-28 lg:px-12 lg:py-40"
+      >
+        <p class="mono text-[10px] uppercase tracking-widest text-muted">
+          03 — Program pendidikan
+        </p>
+        <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+          Membentuk lebih dari<br /><i class="text-gold">sekadar prestasi.</i>
+        </h2>
+        <div class="mt-20 divide-y divide-black/10 border-y border-black/10">
+          <article class="grid gap-5 py-9 sm:grid-cols-[70px_1fr_30px]">
+            <span class="mono text-xs text-gold">01</span>
+            <div>
+              <span class="mono text-[9px] uppercase tracking-widest text-gold"
+                >Qur’anic studies</span
+              >
+              <h3 class="display mt-2 text-3xl">Pendidikan Al-Qur’an</h3>
+              <p class="mt-2 max-w-xl text-sm leading-6 text-muted">
+                Tahsin, tahfidz, dan pemahaman Al-Qur’an yang bertahap.
+              </p>
+              <a
+                data-wa="program"
+                href="#daftar"
+                class="mt-5 inline-flex border-b border-black/15 pb-2 text-[10px] uppercase tracking-widest"
+                >Pelajari program ↗</a
+              >
+            </div>
+            <span>↗</span>
+          </article>
+          <article class="grid gap-5 py-9 sm:grid-cols-[70px_1fr_30px]">
+            <span class="mono text-xs text-gold">02</span>
+            <div>
+              <span class="mono text-[9px] uppercase tracking-widest text-gold"
+                >Future ready</span
+              >
+              <h3 class="display mt-2 text-3xl">Pendidikan Akademik</h3>
+              <p class="mt-2 max-w-xl text-sm leading-6 text-muted">
+                Kurikulum terarah untuk menjaga rasa ingin tahu dan menyiapkan
+                masa depan.
+              </p>
+              <a
+                data-wa="program"
+                href="#daftar"
+                class="mt-5 inline-flex border-b border-black/15 pb-2 text-[10px] uppercase tracking-widest"
+                >Pelajari program ↗</a
+              >
+            </div>
+            <span>↗</span>
+          </article>
+          <article class="grid gap-5 py-9 sm:grid-cols-[70px_1fr_30px]">
+            <span class="mono text-xs text-gold">03</span>
+            <div>
+              <span class="mono text-[9px] uppercase tracking-widest text-gold"
+                >Daily practice</span
+              >
+              <h3 class="display mt-2 text-3xl">Pembinaan Karakter</h3>
+              <p class="mt-2 max-w-xl text-sm leading-6 text-muted">
+                Kemandirian, disiplin, dan adab dalam keseharian yang hangat.
+              </p>
+              <a
+                data-wa="program"
+                href="#daftar"
+                class="mt-5 inline-flex border-b border-black/15 pb-2 text-[10px] uppercase tracking-widest"
+                >Pelajari program ↗</a
+              >
+            </div>
+            <span>↗</span>
+          </article>
+        </div>
+      </section>
+      <section
+        id="kehidupan"
+        class="bg-forest px-6 py-28 text-white lg:px-12 lg:py-36"
+      >
+        <div class="mx-auto max-w-[1400px]">
+          <p class="mono text-[10px] uppercase tracking-widest text-white/50">
+            04 — Kehidupan santri
+          </p>
+          <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+            Belajar hadir<br />dalam <i class="text-gold">keseharian.</i>
+          </h2>
+          <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              class="flex min-h-[390px] items-end bg-[url('https://images.unsplash.com/photo-1542816417-098367d9c5f9?auto=format&fit=crop&w=1100&q=85')] bg-cover bg-center p-6 lg:row-span-2"
+            >
+              <span class="display text-2xl">Ruang belajar</span>
+            </div>
+            <div
+              class="flex min-h-[250px] items-end bg-[url('https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=900&q=85')] bg-cover bg-center p-6"
+            >
+              <span class="display text-2xl">Langkah bersama</span>
+            </div>
+            <div
+              class="flex min-h-[250px] items-end bg-[url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=900&q=85')] bg-cover bg-center p-6"
+            >
+              <span class="display text-2xl">Waktu bertumbuh</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="mx-auto grid max-w-[1400px] gap-16 px-6 py-28 lg:grid-cols-[.75fr_1fr] lg:gap-32 lg:px-12"
+      >
+        <div>
+          <p class="mono text-[10px] uppercase tracking-widest text-muted">
+            05 — Sehari di Mujtaba
+          </p>
+          <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+            Ritme kecil.<br /><i class="text-gold">Makna yang besar.</i>
+          </h2>
+        </div>
+        <div class="divide-y divide-black/10 border-l border-black/10">
+          <div class="grid grid-cols-[54px_14px_1fr] gap-4 py-5">
+            <span class="mono text-[10px] text-gold">04.00</span><span>•</span>
+            <div>
+              <h3 class="display text-lg">Bangun & persiapan shalat</h3>
+              <p class="text-xs text-muted">Memulai hari dengan kesadaran.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[54px_14px_1fr] gap-4 py-5">
+            <span class="mono text-[10px] text-gold">07.00</span><span>•</span>
+            <div>
+              <h3 class="display text-lg">Pembelajaran</h3>
+              <p class="text-xs text-muted">
+                Menyelami ilmu dengan rasa ingin tahu.
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[54px_14px_1fr] gap-4 py-5">
+            <span class="mono text-[10px] text-gold">16.00</span><span>•</span>
+            <div>
+              <h3 class="display text-lg">Olahraga & kebersamaan</h3>
+              <p class="text-xs text-muted">Menjaga tubuh dan hubungan.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[54px_14px_1fr] gap-4 py-5">
+            <span class="mono text-[10px] text-gold">20.00</span><span>•</span>
+            <div>
+              <h3 class="display text-lg">Belajar & istirahat</h3>
+              <p class="text-xs text-muted">Menutup hari dengan refleksi.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fasilitas" class="bg-cream px-6 py-28 lg:px-12">
+        <div class="mx-auto max-w-[1400px]">
+          <div
+            class="relative h-[500px] overflow-hidden text-white sm:h-[620px]"
+          >
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=1900&q=85')] bg-cover bg-center"
+            ></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-forest/80 to-transparent"
+            ></div>
+            <div class="relative flex h-full flex-col justify-end p-7 sm:p-12">
+              <p
+                class="mono text-[10px] uppercase tracking-widest text-white/60"
+              >
+                06 — Fasilitas
+              </p>
+              <h2 class="display mt-5 text-7xl">Masjid</h2>
+              <p class="display text-xl text-white/80">
+                Ruang untuk menguatkan hubungan dengan Allah.
+              </p>
+            </div>
+          </div>
+          <h3 class="display mt-10 text-3xl">
+            Tempat yang mendukung<br /><i class="text-gold"
+              >mereka untuk bertumbuh.</i
+            >
+          </h3>
+        </div>
+      </section>
+      <section class="bg-emerald px-6 py-28 text-white sm:px-[12%] lg:py-36">
+        <p class="mono text-[10px] uppercase tracking-widest text-white/50">
+          07 — Cerita mereka
+        </p>
+        <blockquote
+          class="display mt-12 max-w-5xl text-4xl leading-tight sm:text-6xl"
+        >
+          Perubahan terbesar bukan hanya pada kemampuan belajar anak kami,
+          tetapi pada cara ia <i class="text-gold">bersikap.</i>
+        </blockquote>
+        <p class="mt-10 text-xs">
+          Nur Aini <span class="text-white/50">· Orang tua santri</span>
+        </p>
+      </section>
+      <section
+        class="mx-6 grid grid-cols-2 gap-y-12 rounded-[32px] bg-forest px-6 py-16 text-white shadow-xl sm:grid-cols-4 lg:mx-12 lg:px-12"
+      >
+        <div>
+          <strong class="display text-6xl text-gold"
+            >500<span class="text-4xl">+</span></strong
+          ><small
+            class="mono block text-[9px] uppercase tracking-widest text-white/50"
+            >Santri</small
+          >
+        </div>
+        <div>
+          <strong class="display text-6xl text-gold"
+            >42<span class="text-4xl">+</span></strong
+          ><small
+            class="mono block text-[9px] uppercase tracking-widest text-white/50"
+            >Pengajar</small
+          >
+        </div>
+        <div>
+          <strong class="display text-6xl text-gold">12</strong
+          ><small
+            class="mono block text-[9px] uppercase tracking-widest text-white/50"
+            >Program</small
+          >
+        </div>
+        <div>
+          <strong class="display text-6xl text-gold"
+            >15<span class="text-4xl">+</span></strong
+          ><small
+            class="mono block text-[9px] uppercase tracking-widest text-white/50"
+            >Tahun</small
+          >
+        </div>
+      </section>
+      <section
+        id="daftar"
+        class="mx-auto grid max-w-[1400px] gap-12 px-6 py-28 lg:grid-cols-[1fr_.9fr] lg:items-center lg:gap-32 lg:px-12 lg:py-40"
+      >
+        <div>
+          <p class="mono text-[10px] uppercase tracking-widest text-muted">
+            08 — Langkah berikutnya
+          </p>
+          <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+            Langkah kecil hari ini,<br />untuk masa depan<br /><i
+              class="text-gold"
+              >yang lebih besar.</i
+            >
+          </h2>
+          <p class="mt-8 max-w-sm text-sm leading-7 text-muted">
+            Berikan lingkungan terbaik untuk tumbuh, belajar, dan membangun masa
+            depannya.
+          </p>
+          <a
+            data-wa="registration"
+            href="#daftar"
+            class="mt-8 inline-flex bg-forest px-5 py-4 text-xs uppercase text-white"
+            >Daftar via WhatsApp ↗</a
+          >
+        </div>
+        <div
+          class="h-[430px] bg-[url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1300&q=85')] bg-cover bg-center"
+        ></div>
+      </section>
+      <section class="bg-cream px-6 py-28 lg:px-12">
+        <div
+          class="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-[.7fr_1fr] lg:gap-32"
+        >
+          <div>
+            <p class="mono text-[10px] uppercase tracking-widest text-muted">
+              09 — FAQ
+            </p>
+            <h2 class="display mt-7 text-5xl leading-[.98] sm:text-7xl">
+              Yang sering<br /><i class="text-gold">ditanyakan.</i>
+            </h2>
+          </div>
+          <div
+            id="faq"
+            class="divide-y divide-black/10 border-y border-black/10"
+          >
+            <div class="faq-item open">
+              <button
+                class="flex w-full justify-between py-6 text-left display text-lg"
+                aria-expanded="true"
+              >
+                <span>Kapan pendaftaran dibuka?</span
+                ><span class="faq-plus text-2xl text-gold">+</span>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p class="pb-6 text-sm leading-7 text-muted">
+                    Pendaftaran dibuka setiap tahun ajaran baru. Hubungi admin
+                    untuk jadwal dan kuota terbaru.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="flex w-full justify-between py-6 text-left display text-lg"
+                aria-expanded="false"
+              >
+                <span>Apakah tersedia asrama?</span
+                ><span class="faq-plus text-2xl text-gold">+</span>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p class="pb-6 text-sm leading-7 text-muted">
+                    Ya. Kehidupan berasrama dirancang aman, terarah, dan penuh
+                    pendampingan.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="flex w-full justify-between py-6 text-left display text-lg"
+                aria-expanded="false"
+              >
+                <span>Bagaimana cara mendaftar?</span
+                ><span class="faq-plus text-2xl text-gold">+</span>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p class="pb-6 text-sm leading-7 text-muted">
+                    Klik tombol WhatsApp dan admin kami akan memandu prosesnya
+                    dari awal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="relative min-h-[570px] overflow-hidden text-white">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2200&q=85')] bg-cover bg-center"
+        ></div>
+        <div class="absolute inset-0 bg-forest/75"></div>
+        <div
+          class="relative mx-auto flex min-h-[570px] max-w-[1400px] flex-col justify-center px-6 lg:px-12"
+        >
+          <p class="mono text-[10px] uppercase tracking-widest text-white/60">
+            Mari memulai perjalanan
+          </p>
+          <h2 class="display mt-7 max-w-5xl text-5xl leading-[.98] sm:text-7xl">
+            Mungkin hari ini adalah awal<br />dari perjalanan
+            <i class="text-gold">terbaik mereka.</i>
+          </h2>
+          <a
+            data-wa="general"
+            href="#daftar"
+            class="mt-10 inline-flex w-fit bg-gold px-5 py-4 text-xs uppercase text-forest"
+            >Mulai konsultasi via WhatsApp ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="bg-forest px-6 py-16 text-white lg:px-12">
+      <div
+        class="mx-auto grid max-w-[1400px] gap-12 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        <div class="sm:col-span-2">
+          <a href="#top" class="display text-xl">Pondok Mujtaba</a>
+          <p class="display mt-6 text-xl text-white/60">
+            Dibangun untuk menumbuhkan<br />generasi masa depan.
+          </p>
+        </div>
+        <div>
+          <p class="mono mb-5 text-[10px] uppercase tracking-widest text-gold">
+            Jelajahi
+          </p>
+          <div class="flex flex-col gap-3 text-xs text-white/60">
+            <a href="#tentang">Tentang kami</a><a href="#program">Program</a
+            ><a href="#kehidupan">Kehidupan santri</a
+            ><a href="#fasilitas">Fasilitas</a>
+          </div>
+        </div>
+        <div>
+          <p class="mono mb-5 text-[10px] uppercase tracking-widest text-gold">
+            Hubungi
+          </p>
+          <div class="flex flex-col gap-3 text-xs text-white/60">
+            <a data-wa="general" href="#daftar">WhatsApp</a
+            ><a href="mailto:halo@pondokmujtaba.id">halo@pondokmujtaba.id</a
+            ><span>Jl. Pendidikan No. 01<br />Indonesia</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mx-auto mt-16 flex max-w-[1400px] justify-between border-t border-white/15 pt-5 mono text-[9px] uppercase tracking-widest text-white/40"
+      >
+        <span>© 2026 Pondok Mujtaba</span><span>Ilmu. Adab. Masa depan.</span>
+      </div>
+    </footer>
+    <div
+      id="wa-tip"
+      class="fixed bottom-24 right-5 z-40 hidden items-center gap-2 bg-white px-4 py-3 text-xs shadow-xl"
+    >
+      Assalamualaikum 👋 <button aria-label="Tutup pesan">×</button>
+    </div>
+    <a
+      data-wa="general"
+      href="#daftar"
+      aria-label="Hubungi via WhatsApp"
+      class="fixed bottom-5 right-5 z-40 flex h-14 items-center justify-center rounded-full border-4 border-white bg-[#20283a] px-5 text-xs font-semibold text-white shadow-lg transition hover:bg-[#5424c9] sm:right-7"
+      >💬 <span class="ml-2 hidden sm:inline">Tanya kami</span></a
+    >
+    <script>
+      const WHATSAPP_NUMBER = "6281234567890";
+      const messages = {
+        general:
+          "Assalamualaikum, saya ingin mendapatkan informasi lebih lanjut mengenai Pondok Mujtaba.",
+        registration:
+          "Assalamualaikum, saya ingin mendapatkan informasi pendaftaran Pondok Mujtaba.",
+        program:
+          "Assalamualaikum, saya ingin bertanya tentang program pendidikan di Pondok Mujtaba.",
+      };
+      document.querySelectorAll("[data-wa]").forEach((link) => {
+        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messages[link.dataset.wa] || messages.general)}`;
+      });
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("fixed", scrollY > 40);
+        header.classList.toggle("top-0", scrollY > 40);
+        header.classList.toggle("bg-forest/95", scrollY > 40);
+        header.classList.toggle("backdrop-blur-md", scrollY > 40);
+      });
+      document
+        .getElementById("menu-button")
+        .addEventListener("click", () =>
+          document.getElementById("mobile-menu").classList.toggle("open"),
+        );
+      document
+        .querySelectorAll("#mobile-menu a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            document.getElementById("mobile-menu").classList.remove("open"),
+          ),
+        );
+      document.querySelectorAll(".faq-item button").forEach((button) =>
+        button.addEventListener("click", () => {
+          const item = button.parentElement;
+          const open = item.classList.toggle("open");
+          button.setAttribute("aria-expanded", open);
+        }),
+      );
+      const observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          }),
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((element) => observer.observe(element));
+      setTimeout(
+        () =>
+          document.getElementById("wa-tip").classList.replace("hidden", "flex"),
+        3500,
+      );
+      document
+        .querySelector("#wa-tip button")
+        .addEventListener("click", () =>
+          document.getElementById("wa-tip").remove(),
+        );
+    </script>
+  </body>
+</html>
